@@ -32,8 +32,8 @@ public class PatientService {
         return new HashSet<>(patients.values());
     }
 
-    public Patient updatePatient(String id){
-        Patient patient = patient.getPatient(id);
+    public Patient updatePatient(String id, Patient patient){
+
         if(patients.containsKey(id)){
             patients.put(id,patient);
             return patient;

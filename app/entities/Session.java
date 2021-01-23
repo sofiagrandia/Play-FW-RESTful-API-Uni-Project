@@ -1,16 +1,18 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Session {
     private String sessionID;
     private Timestamp timestamp;
     private float EMG1;
     private float EMG2;
-    private list<float> IMU1 = new ArrayList<>();
-    private list<float> IMU2 = new ArrayList<>();
-    private list<float> IMU3 = new ArrayList<>();
+    private List<Float>IMU1 = new ArrayList<>();
+    private List<Float> IMU2 = new ArrayList<>();
+    private List<Float> IMU3 = new ArrayList<>();
 
 
     public String getSessionID() {
@@ -45,27 +47,27 @@ public class Session {
         this.EMG2 = EMG2;
     }
 
-    public list<float> getIMU1() {
+    public List<Float> getIMU1() {
         return IMU1;
     }
 
-    public void setIMU1(list<float> IMU1) {
+    public void setIMU1(List<Float> IMU1) {
         this.IMU1 = IMU1;
     }
 
-    public list<float> getIMU2() {
+    public List<Float> getIMU2() {
         return IMU2;
     }
 
-    public void setIMU2(list<float> IMU2) {
+    public void setIMU2(List<Float> IMU2) {
         this.IMU2 = IMU2;
     }
 
-    public list<float> getIMU3() {
+    public List<Float> getIMU3() {
         return IMU3;
     }
 
-    public void setIMU3(list<float> IMU3) {
+    public void setIMU3(List<Float> IMU3) {
         this.IMU3 = IMU3;
     }
 

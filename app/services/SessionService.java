@@ -4,7 +4,7 @@ import entities.Patient;
 import entities.Session;
 import scala.collection.mutable.HashMap;
 
-import java.util.HashMap;
+
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -43,6 +43,6 @@ public class SessionService {
 
     public boolean deleteSession(String patient_id, String id){
 
-        return session_patient.get(patient_id).get(id).remove(id) !=null;
+        return session_patient.get(patient_id).remove(id) !=null;
     }
 }

@@ -32,13 +32,13 @@ public class DBController extends Controller {
         return created(ApplicationUtil.createResponse(jsonObject, true));
     }
 
-    public Result updatePatient(String id) {
+    public Result updatePatient(String id, Http.Request request) {
         logger.debug("In DBController.updatePatient()");
         JsonNode json = request.body().asJson();
         if (json == null) {
             return badRequest(ApplicationUtil.createResponse("Expecting Json data", false));
         }
-        Patient patient = PatientService.getInstance().updatePatient(id);
+        Patient patient = PatientService.getInstance().updatePatient(id,Json.fromJson(json, Patient.class));
         logger.debug("In DBController.updatePatient(), Patient is: {}",id);
         if (patient == null) {
             return notFound(ApplicationUtil.createResponse("Patient not found", false));
