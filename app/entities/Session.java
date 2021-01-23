@@ -1,15 +1,17 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class Session {
     private String sessionID;
     private Timestamp timestamp;
     private float EMG1;
     private float EMG2;
-    private float[] IMU1;
-    private float[] IMU2;
-    private float[] IMU3;
+    private list<float> IMU1 = new ArrayList<>();
+    private list<float> IMU2 = new ArrayList<>();
+    private list<float> IMU3 = new ArrayList<>();
+
 
     public String getSessionID() {
         return sessionID;
@@ -43,27 +45,40 @@ public class Session {
         this.EMG2 = EMG2;
     }
 
-    public float[] getIMU1() {
+    public list<float> getIMU1() {
         return IMU1;
     }
 
-    public void setIMU1(float[] IMU1) {
+    public void setIMU1(list<float> IMU1) {
         this.IMU1 = IMU1;
     }
 
-    public float[] getIMU2() {
+    public list<float> getIMU2() {
         return IMU2;
     }
 
-    public void setIMU2(float[] IMU2) {
+    public void setIMU2(list<float> IMU2) {
         this.IMU2 = IMU2;
     }
 
-    public float[] getIMU3() {
+    public list<float> getIMU3() {
         return IMU3;
     }
 
-    public void setIMU3(float[] IMU3) {
+    public void setIMU3(list<float> IMU3) {
         this.IMU3 = IMU3;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Session{" +
+                "sessionID='" + sessionID + '\'' +
+                ", timestamp=" + timestamp +
+                ", EMG1=" + EMG1 +
+                ", EMG2=" + EMG2 +
+                ", IMU1=" + IMU1 +
+                ", IMU2=" + IMU2 +
+                ", IMU3=" + IMU3 +
+                '}';
     }
 }

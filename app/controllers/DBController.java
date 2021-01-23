@@ -32,14 +32,14 @@ public class DBController extends Controller {
         return created(ApplicationUtil.createResponse(jsonObject, true));
     }
 
-    public Result updatePatient(Http.Request request) {
+    public Result updatePatient(String id) {
         logger.debug("In DBController.updatePatient()");
         JsonNode json = request.body().asJson();
         if (json == null) {
             return badRequest(ApplicationUtil.createResponse("Expecting Json data", false));
         }
-        Patient patient = PatientService.getInstance().updatePatient(Json.fromJson(json, Patient.class));
-        logger.debug("In DBController.updatePatient(), Patient is: {}",patient);
+        Patient patient = PatientService.getInstance().updatePatient(id);
+        logger.debug("In DBController.updatePatient(), Patient is: {}",id);
         if (patient == null) {
             return notFound(ApplicationUtil.createResponse("Patient not found", false));
         }
@@ -75,13 +75,13 @@ public class DBController extends Controller {
         }
         return ok(ApplicationUtil.createResponse("Patient with id:" + id + " deleted", true));
     }
-    public Result createSession(Http.Request request) {
+    public Result createSession(String id,Http.Request request) {
         JsonNode json = request.body().asJson();
         if (json == null) {
             return badRequest(ApplicationUtil.createResponse("Expecting JSON data", false));
         }
         logger.debug("In DBController.createSession(), input is: {}", json.toString());
-        Session session = SessionService.getInstance().addSession(Json.fromJson(json, Patient.class),Json.fromJson(json, Session.class));
+        Session session = SessionService.getInstance().addSession(id,Json.fromJson(json, Session.class));
         JsonNode jsonObject = Json.toJson(session);
         return created(ApplicationUtil.createResponse(jsonObject, true));
     }

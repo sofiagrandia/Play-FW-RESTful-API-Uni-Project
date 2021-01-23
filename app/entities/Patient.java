@@ -9,15 +9,7 @@ public class Patient {
     private String firstName;
     private String lastName;
     private Date dob;
-    private Map<String, Session> sessions = new HashMap<>();
 
-    public Map<String, Session> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(Map<String, Session> sessions) {
-        this.sessions = sessions;
-    }
 
     public String getUserID() {
         return userID;

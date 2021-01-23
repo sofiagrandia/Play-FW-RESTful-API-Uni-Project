@@ -11,12 +11,12 @@ DELETE  /employee/:id          controllers.EmployeeController.delete(id:Int)
 GET     /patient                        controllers.DBController.listPatients()
 GET     /patient/:id                    controllers.DBController.retrievePatient(id:String)
 POST    /patient                        controllers.DBController.createPatient(request:Request)
-PUT     /patient                        controllers.DBController.updatePatient(request:Request)
+PUT     /patient/:id                    controllers.DBController.updatePatient(id:String)
 DELETE  /patient/:id                    controllers.DBController.deletePatient(id:String)
 GET     /patient/:id/session            controllers.DBController.listSessions(id:String)
 GET     /patient/:id/session/:idS       controllers.DBController.retrieveSession(id:String,idS:String)
-#POST    /patient/:id/session/:idS       controllers.DBController.createSession(request:Request)
-DELETE   /patient/:id/session/:idS       controllers.DBController.deleteSession(id:String,idS:String)
+POST    /patient/:id/session            controllers.DBController.createSession(id:String,request:Request)
+DELETE   /patient/:id/session/:idS      controllers.DBController.deleteSession(id:String,idS:String)
 
 
 # An example controller showing a sample home page
