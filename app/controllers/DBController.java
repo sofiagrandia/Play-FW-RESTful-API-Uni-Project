@@ -97,7 +97,7 @@ public class DBController extends Controller {
     }
 
     public Result listSessions(String patient_id) {
-        Set<Session> result = SessionService.getInstance().getSessions(patient_id);
+        java.util.Map<String,Session> result = SessionService.getInstance().getSessions(patient_id);
         logger.debug("In DBController.listSessions(), result is: {}",result.toString());
         ObjectMapper mapper = new ObjectMapper();
 

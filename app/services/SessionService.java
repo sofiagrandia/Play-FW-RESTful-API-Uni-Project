@@ -2,18 +2,14 @@ package services;
 
 import entities.Patient;
 import entities.Session;
-import scala.collection.mutable.HashMap;
 
-
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class SessionService {
 
     private static SessionService instance;
-    private Map<String, Session> sessions = new HashMap<>();
-    private  Map<String , Map<String, Session>> session_patient = new HashMap<>();
+    private java.util.Map<String, Session> sessions = new java.util.HashMap<>();
+    private  java.util.Map<String , java.util.Map<String, Session>> session_patient = new java.util.HashMap<>();
 
     public static SessionService getInstance(){
         if (instance==null){
@@ -36,9 +32,10 @@ public class SessionService {
         return session_patient.get(patient_id).get(id);
     }
 
-    public Set<Session> getSessions(String patient_id){
+    public Map<String, Session> getSessions(String patient_id){
 
-        return new HashSet<>(session_patient.get(patient_id));
+
+        return session_patient.get(patient_id);
     }
 
     public boolean deleteSession(String patient_id, String id){
