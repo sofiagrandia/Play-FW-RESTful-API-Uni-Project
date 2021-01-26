@@ -8,11 +8,29 @@ import java.util.List;
 public class Session {
     private String sessionID;
     private Timestamp timestamp;
-    private float EMG1;
-    private float EMG2;
-    private List<Float>IMU1 = new ArrayList<>();
-    private List<Float> IMU2 = new ArrayList<>();
-    private List<Float> IMU3 = new ArrayList<>();
+    //private float EMG1;
+    //private float EMG2;
+    private List<Float> EMG = new ArrayList<>();
+    //private List<Float>IMU1 = new ArrayList<>();
+    //private List<Float> IMU2 = new ArrayList<>();
+    //private List<Float> IMU3 = new ArrayList<>();
+    private List<List<Float>> IMU = new ArrayList<>();
+
+    public List<Float> getEMG() {
+        return EMG;
+    }
+
+    public void setEMG(List<Float> EMG) {
+        this.EMG= EMG;
+    }
+    public List<List<Float>> getIMU() {
+        return IMU;
+    }
+
+    public void setIMU4(List<List<Float>> IMU) {
+        this.IMU = IMU;
+    }
+
 
 
     public String getSessionID() {
@@ -31,7 +49,7 @@ public class Session {
         this.timestamp = timestamp;
     }
 
-    public float getEMG1() {
+    /*public float getEMG1() {
         return EMG1;
     }
 
@@ -69,18 +87,15 @@ public class Session {
 
     public void setIMU3(List<Float> IMU3) {
         this.IMU3 = IMU3;
-    }
+    }*/
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Session{" +
                 "sessionID='" + sessionID + '\'' +
                 ", timestamp=" + timestamp +
-                ", EMG1=" + EMG1 +
-                ", EMG2=" + EMG2 +
-                ", IMU1=" + IMU1 +
-                ", IMU2=" + IMU2 +
-                ", IMU3=" + IMU3 +
+                ", EMG=" + EMG +
+                ", IMU=" + IMU +
                 '}';
     }
 }

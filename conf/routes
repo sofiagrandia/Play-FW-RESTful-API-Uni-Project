@@ -8,15 +8,15 @@ POST    /employee              controllers.EmployeeController.create(request:Req
 PUT     /employee              controllers.EmployeeController.update(request:Request)
 DELETE  /employee/:id          controllers.EmployeeController.delete(id:Int)
 
-GET     /patient                        controllers.DBController.listPatients()
-GET     /patient/:id                    controllers.DBController.retrievePatient(id:String)
-POST    /patient                        controllers.DBController.createPatient(request:Request)
-PUT     /patient/:id                    controllers.DBController.updatePatient(id:String,request:Request)
-DELETE  /patient/:id                    controllers.DBController.deletePatient(id:String)
-GET     /patient/:id/session            controllers.DBController.listSessions(id:String)
-GET     /patient/:id/session/:idS       controllers.DBController.retrieveSession(id:String,idS:String)
-POST    /patient/:id/session            controllers.DBController.createSession(id:String,request:Request)
-DELETE   /patient/:id/session/:idS      controllers.DBController.deleteSession(id:String,idS:String)
+GET     /patients                        controllers.DBController.listPatients()
+GET     /patients/:id                    controllers.DBController.retrievePatient(id:String)
+POST    /patients                        controllers.DBController.createPatient(request:Request)
+PUT     /patients/:id                    controllers.DBController.updatePatient(id:String,request:Request)
+DELETE  /patients/:id                    controllers.DBController.deletePatient(id:String)
+GET     /patients/:id/sessions            controllers.DBController.listSessions(id:String)
+GET     /patients/:id/sessions/:idS       controllers.DBController.retrieveSession(id:String,idS:String)
+POST    /patients/:id/sessions            controllers.DBController.createSession(id:String,request:Request)
+DELETE   /patients/:id/sessions/:idS      controllers.DBController.deleteSession(id:String,idS:String)
 
 
 # An example controller showing a sample home page
