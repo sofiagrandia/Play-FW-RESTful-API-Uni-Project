@@ -1,19 +1,32 @@
 package entities;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.lang.*;
 
 public class Session {
-    private String sessionID;
-    private Timestamp timestamp;
-    private float EMG1;
-    private float EMG2;
-    private List<Float>IMU1 = new ArrayList<>();
-    private List<Float> IMU2 = new ArrayList<>();
-    private List<Float> IMU3 = new ArrayList<>();
 
+    private static long time=new Date().getTime();
+
+    private static int numSessions=0;
+
+    private String sessionID;
+    private Date timestamp;
+    private List<RawData>data = new ArrayList<>();
+
+    public Session(){
+        this.sessionID=""+numSessions++;
+        time+=60*1000;
+        this.timestamp=new Date(time);
+        for(int i=0; i<100;i++){
+            this.data.add(new RawData(time+i));
+        }
+    }
+
+    public Session(String sessionID, Date date, List<RawData> data){
+        this.sessionID=sessionID;
+        this.timestamp=date;
+        this.data=data;
+    }
 
     public String getSessionID() {
         return sessionID;
@@ -23,64 +36,33 @@ public class Session {
         this.sessionID = sessionID;
     }
 
-    public Timestamp getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
-    public float getEMG1() {
-        return EMG1;
+    public List<RawData> getData(){
+        return this.data;
     }
 
-    public void setEMG1(float EMG1) {
-        this.EMG1 = EMG1;
+    public void setData(ArrayList<RawData> data){
+        this.data=data;
     }
 
-    public float getEMG2() {
-        return EMG2;
-    }
-
-    public void setEMG2(float EMG2) {
-        this.EMG2 = EMG2;
-    }
-
-    public List<Float> getIMU1() {
-        return IMU1;
-    }
-
-    public void setIMU1(List<Float> IMU1) {
-        this.IMU1 = IMU1;
-    }
-
-    public List<Float> getIMU2() {
-        return IMU2;
-    }
-
-    public void setIMU2(List<Float> IMU2) {
-        this.IMU2 = IMU2;
-    }
-
-    public List<Float> getIMU3() {
-        return IMU3;
-    }
-
-    public void setIMU3(List<Float> IMU3) {
-        this.IMU3 = IMU3;
-    }
 
     @java.lang.Override
     public java.lang.String toString() {
+        String raw = "\n";
+        for(RawData rd : data){
+            raw+="    "+rd.toString()+"\n";
+        }
+
         return "Session{" +
                 "sessionID='" + sessionID + '\'' +
-                ", timestamp=" + timestamp +
-                ", EMG1=" + EMG1 +
-                ", EMG2=" + EMG2 +
-                ", IMU1=" + IMU1 +
-                ", IMU2=" + IMU2 +
-                ", IMU3=" + IMU3 +
+                ", timestamp=" + timestamp + raw +
                 '}';
     }
 }
