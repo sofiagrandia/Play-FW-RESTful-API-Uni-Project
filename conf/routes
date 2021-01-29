@@ -14,7 +14,7 @@ POST    /patients                        controllers.DBController.createPatient(
 PUT     /patients/:id                    controllers.DBController.updatePatient(id:String,request:Request)
 DELETE  /patients/:id                    controllers.DBController.deletePatient(id:String)
 GET     /patients/:id/sessions            controllers.DBController.listSessions(id:String)
-GET     /patients/:id/sessions/:idS       controllers.DBController.retrieveSession(id:String,idS:String)
+GET     /patients/:id/sessions/:idS       controllers.DBController.retrieveSession(id:String,idS:String, init:java.util.Optional[java.lang.Long], end:java.util.Optional[java.lang.Long])
 POST    /patients/:id/sessions            controllers.DBController.createSession(id:String,request:Request)
 DELETE   /patients/:id/sessions/:idS      controllers.DBController.deleteSession(id:String,idS:String)
 

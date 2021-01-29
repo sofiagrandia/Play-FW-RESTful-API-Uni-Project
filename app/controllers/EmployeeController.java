@@ -45,6 +45,7 @@ public class EmployeeController extends Controller{
     }
 
     public Result retrieve(int id) {
+
         logger.debug("In EmployeeController.retrieve(), retrieve employee with id: {}",id);
         if (EmployeeService.getInstance().getEmployee(id) == null) {
             return notFound(ApplicationUtil.createResponse("Employee with id:" + id + " not found", false));
