@@ -1,12 +1,6 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-# APIs in EmployeeController
-GET     /employee              controllers.EmployeeController.listEmployees()
-GET     /employee/:id          controllers.EmployeeController.retrieve(id:Int)
-POST    /employee              controllers.EmployeeController.create(request:Request)
-PUT     /employee              controllers.EmployeeController.update(request:Request)
-DELETE  /employee/:id          controllers.EmployeeController.delete(id:Int)
 
 GET     /patients                        controllers.DBController.listPatients()
 GET     /patients/:id                    controllers.DBController.retrievePatient(id:String)
