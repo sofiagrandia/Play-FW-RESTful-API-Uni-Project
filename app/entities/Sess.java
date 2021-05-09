@@ -3,37 +3,37 @@ package entities;
 import java.util.*;
 import java.lang.*;
 
-public class Session {
+public class Sess {
 
     private static long time=new Date().getTime();
 
     private static int numSessions=0;
 
-    private String sessionID;
+    private String session_id;
     private Date timestamp;
-    private List<RawData>data = new ArrayList<>();
+    private List<RawData>session_data = new ArrayList<>();
 
-    public Session(){
-        this.sessionID=""+numSessions++;
+    public Sess(){
+        this.session_id=""+numSessions++;
         time+=60*1000;
         this.timestamp=new Date(time);
         for(int i=0; i<100;i++){
-            this.data.add(new RawData(time+i));
+            this.session_data.add(new RawData(time+i));
         }
     }
 
-    public Session(String sessionID, Date date, List<RawData> data){
-        this.sessionID=sessionID;
+    public Sess(String sessionID, Date date, List<RawData> data){
+        this.session_id=sessionID;
         this.timestamp=date;
-        this.data=data;
+        this.session_data=data;
     }
 
     public String getSessionID() {
-        return sessionID;
+        return session_id;
     }
 
     public void setSessionID(String sessionID) {
-        this.sessionID = sessionID;
+        this.session_id = sessionID;
     }
 
     public Date getTimestamp() {
@@ -45,23 +45,23 @@ public class Session {
     }
 
     public List<RawData> getData(){
-        return this.data;
+        return this.session_data;
     }
 
     public void setData(ArrayList<RawData> data){
-        this.data=data;
+        this.session_data=data;
     }
 
 
     @java.lang.Override
     public java.lang.String toString() {
         String raw = "\n";
-        for(RawData rd : data){
+        for(RawData rd : session_data){
             raw+="    "+rd.toString()+"\n";
         }
 
         return "Session{" +
-                "sessionID='" + sessionID + '\'' +
+                "sessionID='" + session_id + '\'' +
                 ", timestamp=" + timestamp + raw +
                 '}';
     }

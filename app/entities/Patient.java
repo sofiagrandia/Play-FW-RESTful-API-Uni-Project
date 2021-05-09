@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.*;
+import java.time.LocalDate;
 
 public class Patient {
     private String userID;
@@ -22,7 +23,7 @@ public class Patient {
         this.userID="";
         this.firstName="";
         this.lastName="";
-        this.dob=new Date();
+        this.dob= new Date();
         this.sessions= new ArrayList<String>();
     }
 

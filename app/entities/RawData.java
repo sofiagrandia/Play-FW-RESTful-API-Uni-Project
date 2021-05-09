@@ -5,9 +5,87 @@ import java.util.*;
 public class RawData{
 
 
-    private long timestamp;
+    private long time;
+    private float emg1;
+    private float emg2;
+    private float[] imu1;
+    private float[] imu2;
+    private float[] imu3;
 
-    private IMU imu1;
+    public RawData(long time, float emg1, float emg2, float[] imu1, float[] imu2, float[] imu3) {
+        this.time = time;
+        this.emg1 = emg1;
+        this.emg2 = emg2;
+        this.imu1 = imu1;
+        this.imu2 = imu2;
+        this.imu3 = imu3;
+    }
+
+    public RawData(long time) {
+        this.time = time;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public float getEmg1() {
+        return emg1;
+    }
+
+    public void setEmg1(float emg1) {
+        this.emg1 = emg1;
+    }
+
+    public float getEmg2() {
+        return emg2;
+    }
+
+    public void setEmg2(float emg2) {
+        this.emg2 = emg2;
+    }
+
+    public float[] getImu1() {
+        return imu1;
+    }
+
+    public void setImu1(float[] imu1) {
+        this.imu1 = imu1;
+    }
+
+    public float[] getImu2() {
+        return imu2;
+    }
+
+    public void setImu2(float[] imu2) {
+        this.imu2 = imu2;
+    }
+
+    public float[] getImu3() {
+        return imu3;
+    }
+
+    public void setImu3(float[] imu3) {
+        this.imu3 = imu3;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "RawData{" +
+                "\ntime=" + time +
+                "\nemg1=" + emg1 +
+                "\nemg2=" + emg2 +
+                "\nimu1=" + java.util.Arrays.toString(imu1) +
+                "\nimu2=" + java.util.Arrays.toString(imu2) +
+                "\nimu3=" + java.util.Arrays.toString(imu3) +
+                '}';
+    }
+
+    /*private IMU imu1;
     private IMU imu2;
     private IMU imu3;
 
@@ -71,5 +149,5 @@ public class RawData{
                 "IMU1 ["+this.imu1+"]\n"+
                 "IMU2 ["+this.imu2+"]\n"+
                 "IMU3 ["+this.imu3+"]";
-    }
+    }*/
 }
