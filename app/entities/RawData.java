@@ -5,12 +5,12 @@ import java.util.*;
 public class RawData{
 
 
-    private long time;
-    private float emg1;
-    private float emg2;
-    private float[] imu1;
-    private float[] imu2;
-    private float[] imu3;
+    public long time;
+    public float emg1;
+    public float emg2;
+    public float[] imu1;
+    public float[] imu2;
+    public float[] imu3;
 
     public RawData(long time, float emg1, float emg2, float[] imu1, float[] imu2, float[] imu3) {
         this.time = time;
