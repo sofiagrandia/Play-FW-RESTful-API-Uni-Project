@@ -5,14 +5,14 @@ import java.util.*;
 public class RawData{
 
 
-    public long time;
+    public double time;
     public float emg1;
     public float emg2;
-    public float[] imu1;
-    public float[] imu2;
-    public float[] imu3;
+    public List<Float> imu1;
+    public List<Float>imu2;
+    public List<Float> imu3;
 
-    public RawData(long time, float emg1, float emg2, float[] imu1, float[] imu2, float[] imu3) {
+    public RawData(double time, float emg1, float emg2, List<Float> imu1, List<Float> imu2, List<Float> imu3) {
         this.time = time;
         this.emg1 = emg1;
         this.emg2 = emg2;
@@ -21,11 +21,11 @@ public class RawData{
         this.imu3 = imu3;
     }
 
-    public RawData(long time) {
+    public RawData(double time) {
         this.time = time;
     }
 
-    public long getTime() {
+    public double getTime() {
         return time;
     }
 
@@ -49,39 +49,54 @@ public class RawData{
         this.emg2 = emg2;
     }
 
-    public float[] getImu1() {
+    public List<Float> getImu1() {
         return imu1;
     }
 
-    public void setImu1(float[] imu1) {
+    public void setImu1(List<Float>imu1) {
         this.imu1 = imu1;
     }
 
-    public float[] getImu2() {
+    public List<Float> getImu2() {
         return imu2;
     }
 
-    public void setImu2(float[] imu2) {
+    public void setImu2(List<Float> imu2) {
         this.imu2 = imu2;
     }
 
-    public float[] getImu3() {
+    public List<Float> getImu3() {
         return imu3;
     }
 
-    public void setImu3(float[] imu3) {
+    public void setImu3(List<Float> imu3) {
         this.imu3 = imu3;
     }
 
     @java.lang.Override
     public java.lang.String toString() {
+        String outputi1="(";
+        for(Float i1 : imu1){
+            outputi1+=i1+",";
+        }
+        outputi1+=")";
+        String outputi2="(";
+        for(Float i2 : imu2){
+            outputi2+=i2+",";
+        }
+        outputi2+=")";
+        String outputi3="(";
+        for(Float i3 : imu3){
+            outputi3+=i3+",";
+        }
+        outputi3+=")";
         return "RawData{" +
                 "\ntime=" + time +
                 "\nemg1=" + emg1 +
                 "\nemg2=" + emg2 +
-                "\nimu1=" + java.util.Arrays.toString(imu1) +
-                "\nimu2=" + java.util.Arrays.toString(imu2) +
-                "\nimu3=" + java.util.Arrays.toString(imu3) +
+                "\nimu1=" + outputi1 +
+                "\nimu2=" + outputi2 +
+                "\nimu3=" + outputi3 +
                 '}';
     }
 

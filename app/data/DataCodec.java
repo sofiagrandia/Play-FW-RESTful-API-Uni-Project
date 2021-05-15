@@ -41,10 +41,10 @@ public class DataCodec extends MappingCodec<UdtValue, RawData> {
     }
 
     @Override protected RawData innerToOuter(UdtValue value) {
-        return value == null ? null : new RawData(value.getLong("time"), value.getFloat("emg1"), value.getFloat("emg2"), value.getList("imu1"), value.getList("imu2"), value.getList("imu3"));
+        return value == null ? null : new RawData(value.getDouble("time"), value.getFloat("emg1"), value.getFloat("emg2"), value.getList("imu1", Float.class), value.getList("imu2",Float.class), value.getList("imu3",Float.class));
     }
 
     @Override protected UdtValue outerToInner(RawData value) {
-        return value == null ? null : getCqlType().newValue().setLong("time", value.time).setFloat("emg1", value.emg1).setFloat("emg2", value.emg2).setList("imu1", value.imu1).setList("imu2", value.imu2).setList("imu3", value.imu3);
+        return value == null ? null : getCqlType().newValue().setDouble("time", value.time).setFloat("emg1", value.emg1).setFloat("emg2", value.emg2).setList("imu1", value.imu1,Float.class ).setList("imu2", value.imu2,Float.class).setList("imu3", value.imu3,Float.class);
     }
 }
